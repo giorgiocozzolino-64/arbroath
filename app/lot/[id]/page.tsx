@@ -1,19 +1,124 @@
 export default function LotPage({ params }: { params: { id: string } }) {
+  const lotId = params.id;
+
   return (
-    <main style={{ padding: "40px", fontFamily: "serif" }}>
-      <p>ARBROATH A.D. 1320</p>
-      <h1>Lot Traceability</h1>
-      <h2>{params.id}</h2>
-      <p>
-        This lot began its maturation on March 23, 2026 and will reach its
-        optimal profile on May 30, 2026.
-      </p>
-      <p>
-        Leonardo Black Box monitors temperature, humidity and vibration.
-      </p>
-      <p>
-        Certified by E.L.Y.A.S.-A.I.
-      </p>
+    <main
+      style={{
+        minHeight: "100vh",
+        background: "#f7f4ee",
+        color: "#111",
+        fontFamily: "Georgia, serif",
+        padding: "48px 24px",
+      }}
+    >
+      <section
+        style={{
+          maxWidth: "980px",
+          margin: "0 auto",
+          background: "#fff",
+          borderRadius: "28px",
+          padding: "56px",
+          boxShadow: "0 20px 60px rgba(0,0,0,0.08)",
+        }}
+      >
+        <p style={{ letterSpacing: "0.32em", fontSize: "12px", color: "#7a746d" }}>
+          ARBROATH A.D. 1320
+        </p>
+
+        <h1 style={{ fontSize: "58px", margin: "18px 0 8px" }}>
+          Digital Cask Passport
+        </h1>
+
+        <p style={{ fontSize: "22px", color: "#5d554d", marginBottom: "36px" }}>
+          Sicilian Sea Salt — Islay Edition
+        </p>
+
+        <div
+          style={{
+            background: "#f0ebe3",
+            borderRadius: "20px",
+            padding: "28px",
+            marginBottom: "32px",
+          }}
+        >
+          <p style={{ margin: 0, fontSize: "13px", color: "#7a746d" }}>
+            Registered Lot
+          </p>
+          <h2 style={{ fontSize: "30px", margin: "10px 0 0", wordBreak: "break-word" }}>
+            {lotId}
+          </h2>
+        </div>
+
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(210px, 1fr))",
+            gap: "18px",
+            marginBottom: "42px",
+          }}
+        >
+          {[
+            ["Product", "Sicilian Sea Salt"],
+            ["Cask", "100KG"],
+            ["Edition", "Islay"],
+            ["Status", "Maturing"],
+            ["Maturation Start", "23 March 2026"],
+            ["Maturation End", "30 May 2026"],
+          ].map(([label, value]) => (
+            <div
+              key={label}
+              style={{
+                border: "1px solid #ece7df",
+                borderRadius: "18px",
+                padding: "22px",
+              }}
+            >
+              <p style={{ margin: 0, fontSize: "13px", color: "#7a746d" }}>
+                {label}
+              </p>
+              <p style={{ margin: "10px 0 0", fontSize: "20px" }}>
+                {value}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <section style={{ marginBottom: "38px" }}>
+          <h2 style={{ fontSize: "34px", marginBottom: "14px" }}>
+            Maturation Record
+          </h2>
+          <p style={{ fontSize: "18px", lineHeight: 1.8, color: "#4a443d" }}>
+            This lot began its maturation process on 23 March 2026 and will
+            continue until 30 May 2026.
+          </p>
+          <p style={{ fontSize: "18px", lineHeight: 1.8, color: "#4a443d" }}>
+            Throughout its evolution, environmental conditions are continuously
+            monitored by our proprietary Leonardo Black Box system, capturing
+            temperature, vibrations, and humidity in real time.
+          </p>
+          <p style={{ fontSize: "18px", lineHeight: 1.8, color: "#4a443d" }}>
+            The entire process is supported by a certified E.L.Y.A.S.-A.I.
+            system, ensuring advanced traceability, consistent quality, and the
+            integrity of its digital identity.
+          </p>
+        </section>
+
+        <section
+          style={{
+            borderTop: "1px solid #ece7df",
+            paddingTop: "28px",
+          }}
+        >
+          <h2 style={{ fontSize: "30px", marginBottom: "12px" }}>
+            Verification
+          </h2>
+          <p style={{ fontSize: "17px", lineHeight: 1.7, color: "#4a443d" }}>
+            This digital record connects the physical cask to its certified
+            product identity, supporting provenance, authenticity, and premium
+            traceability.
+          </p>
+        </section>
+      </section>
     </main>
   );
 }
