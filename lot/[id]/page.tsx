@@ -54,3 +54,4 @@ export default function LotPage({ params }: { params: { id: string } }) {
     </main>
   );
 }
+Add lot dynamic page
