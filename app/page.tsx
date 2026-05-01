@@ -1,51 +1,34 @@
-export default function LotPage({ params }: { params: { id: string } }) {
-  const lotId = params.id;
-
+export default function Home() {
   return (
-    <main style={{ padding: "40px", fontFamily: "serif" }}>
-      <p style={{ letterSpacing: "2px", fontSize: "12px" }}>
-        ARBROATH A.D. 1320
+    <main
+      style={{
+        background: "#f7f4ee",
+        color: "#111",
+        minHeight: "100vh",
+        fontFamily: "serif",
+        padding: "80px 40px",
+      }}
+    >
+      <p style={{ letterSpacing: "0.3em", fontSize: "12px", color: "#6b645c" }}>
+        ARBROATH AD 1320
       </p>
 
-      <h1 style={{ fontSize: "48px", margin: "10px 0" }}>
-        Lot Traceability
-      </h1>
+      <h1 style={{ fontSize: "64px", marginTop: "20px" }}>Sea Salt</h1>
 
-      <p style={{ fontSize: "20px", color: "#6b5c4b" }}>
-        Islay Edition
+      <p style={{ fontSize: "20px", marginTop: "20px", color: "#555" }}>
+        The sea, refined into ritual.
       </p>
 
-      <div
-        style={{
-          background: "#e8e0d8",
-          padding: "20px",
-          borderRadius: "12px",
-          marginTop: "30px",
-        }}
-      >
-        <p>Registered Lot</p>
-        <h2>{lotId}</h2>
-      </div>
+      <section style={{ marginTop: "80px", maxWidth: "900px" }}>
+        <h2 style={{ fontSize: "40px" }}>
+          A quiet luxury shaped by sea and time
+        </h2>
 
-      <div style={{ marginTop: "40px" }}>
-        <h2>The Independent Spirit of Scotland</h2>
-
-        <p style={{ marginTop: "20px", maxWidth: "600px" }}>
-          This lot began its maturation on March 23, 2026 and will reach its
-          optimal profile on May 30, 2026.
+        <p style={{ marginTop: "20px", lineHeight: "1.8", color: "#444" }}>
+          Arbroath AD 1320 Sea Salt nasce come gesto di gusto. Un prodotto che
+          unisce memoria, mare e materia.
         </p>
-
-        <p style={{ marginTop: "20px", maxWidth: "600px" }}>
-          Using our Leonardo Black Box system, we continuously monitor
-          temperature, humidity, and vibration to ensure the highest quality
-          maturation process.
-        </p>
-
-        <p style={{ marginTop: "20px", maxWidth: "600px" }}>
-          All data and product lifecycle are certified by the proprietary
-          E.L.Y.A.S.-A.I. system.
-        </p>
-      </div>
+      </section>
     </main>
   );
 }
