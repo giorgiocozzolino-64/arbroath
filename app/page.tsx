@@ -59,7 +59,7 @@ export default function Page() {
               src="/arbroath-logo.png"
               alt="Arbroath"
               style={{
-                width: 110,
+                width: 260,
                 height: "auto",
                 opacity: 1,
                 filter: "brightness(1.6)",
