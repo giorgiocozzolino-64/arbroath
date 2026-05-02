@@ -34,9 +34,11 @@ export default function Page() {
 
         .hero {
           position: relative;
-          background: radial-gradient(circle at 82% 18%, rgba(191,164,109,.18), transparent 30%), linear-gradient(135deg, #070707 0%, #17130d 100%);
+          background:
+            radial-gradient(circle at 84% 14%, rgba(191,164,109,.18), transparent 32%),
+            linear-gradient(135deg, #070707 0%, #17130d 100%);
           color: white;
-          padding: 48px 64px 54px;
+          padding: 54px 64px 50px;
           border-bottom: 6px double #bfa46d;
           min-height: 258px;
         }
@@ -44,10 +46,10 @@ export default function Page() {
         .heroLogo {
           position: absolute;
           right: 56px;
-          top: 8px;
+          top: -16px;
           width: 245px;
           height: auto;
-          opacity: .94;
+          opacity: .95;
           filter: brightness(1.16) contrast(1.08) drop-shadow(0 18px 38px rgba(0,0,0,.48));
         }
 
@@ -58,7 +60,7 @@ export default function Page() {
         }
 
         .brandLine {
-          margin: 0 0 36px;
+          margin: 0 0 34px;
           color: #d9bd78;
           font-size: 12px;
           letter-spacing: .38em;
@@ -230,9 +232,7 @@ export default function Page() {
         }
 
         @media (max-width: 900px) {
-          .page {
-            padding: 14px;
-          }
+          .page { padding: 14px; }
 
           .hero {
             padding: 34px 28px 38px;
@@ -254,21 +254,13 @@ export default function Page() {
             letter-spacing: .28em;
           }
 
-          h1 {
-            font-size: 46px;
-          }
+          h1 { font-size: 46px; }
 
-          .subtitle {
-            font-size: 19px;
-          }
+          .subtitle { font-size: 19px; }
 
-          .body {
-            padding: 38px 28px 54px;
-          }
+          .body { padding: 38px 28px 54px; }
 
-          .innerBorder {
-            inset: 14px;
-          }
+          .innerBorder { inset: 14px; }
 
           .lotRow {
             flex-direction: column;
@@ -281,13 +273,9 @@ export default function Page() {
             word-break: break-word;
           }
 
-          .infoGrid {
-            grid-template-columns: repeat(2, 1fr);
-          }
+          .infoGrid { grid-template-columns: repeat(2, 1fr); }
 
-          .timelineTitle {
-            font-size: 32px;
-          }
+          .timelineTitle { font-size: 32px; }
 
           .twoGrid,
           .footerGrid {
@@ -300,9 +288,7 @@ export default function Page() {
         }
 
         @media (max-width: 520px) {
-          .page {
-            padding: 0;
-          }
+          .page { padding: 0; }
 
           .certificate {
             border-radius: 0;
@@ -310,9 +296,7 @@ export default function Page() {
             border-right: 0;
           }
 
-          .hero {
-            padding: 30px 22px 34px;
-          }
+          .hero { padding: 30px 22px 34px; }
 
           .heroLogo {
             width: 150px;
@@ -335,13 +319,9 @@ export default function Page() {
             line-height: 1.25;
           }
 
-          .body {
-            padding: 34px 22px 48px;
-          }
+          .body { padding: 34px 22px 48px; }
 
-          .lot {
-            font-size: 25px;
-          }
+          .lot { font-size: 25px; }
 
           .badge {
             width: 100%;
@@ -359,9 +339,7 @@ export default function Page() {
             padding: 20px;
           }
 
-          .timeline {
-            padding: 24px;
-          }
+          .timeline { padding: 24px; }
 
           .timelineTitle {
             font-size: 29px;
