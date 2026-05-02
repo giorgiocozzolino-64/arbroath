@@ -1,34 +1,36 @@
-export default function Home() {
+import Image from "next/image";
+
+export default function Page() {
   return (
-    <main
-      style={{
-        background: "#f7f4ee",
-        color: "#111",
-        minHeight: "100vh",
-        fontFamily: "serif",
-        padding: "80px 40px",
-      }}
-    >
-      <p style={{ letterSpacing: "0.3em", fontSize: "12px", color: "#6b645c" }}>
-        ARBROATH AD 1320
-      </p>
+    <div>
 
-      <h1 style={{ fontSize: "64px", marginTop: "20px" }}>Sea Salt</h1>
+      {/* HEADER HERO */}
+      <header className="bg-[#0b0b0b] text-white px-6 py-16">
+        <div className="mx-auto flex max-w-5xl flex-col items-center text-center">
 
-      <p style={{ fontSize: "20px", marginTop: "20px", color: "#555" }}>
-        The sea, refined into ritual.
-      </p>
+          {/* LOGO */}
+          <Image
+            src="/arbroath-logo-full.png"
+            alt="Arbroath A.D. 1320"
+            width={400}
+            height={400}
+            className="mb-10 w-[340px] h-auto"
+            priority
+          />
 
-      <section style={{ marginTop: "80px", maxWidth: "900px" }}>
-        <h2 style={{ fontSize: "40px" }}>
-          A quiet luxury shaped by sea and time
-        </h2>
+          {/* TITLE */}
+          <h1 className="font-serif text-5xl md:text-6xl tracking-tight">
+            Digital Cask Passport
+          </h1>
 
-        <p style={{ marginTop: "20px", lineHeight: "1.8", color: "#444" }}>
-          Arbroath AD 1320 Sea Salt nasce come gesto di gusto. Un prodotto che
-          unisce memoria, mare e materia.
-        </p>
-      </section>
-    </main>
+          {/* SUBTITLE */}
+          <p className="mt-4 text-lg text-stone-300 font-serif">
+            Sicilian Sea Salt — Islay Edition
+          </p>
+
+        </div>
+      </header>
+
+    </div>
   );
 }
