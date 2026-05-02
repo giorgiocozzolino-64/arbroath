@@ -1,11 +1,4 @@
 export default function Page() {
-  const cardStyle = {
-    background: "rgba(255,255,255,.75)",
-    border: "1px solid #e6ddd2",
-    borderRadius: 18,
-    padding: 22,
-  };
-
   const infoItems = [
     ["Product", "Sicilian Sea Salt"],
     ["Cask", "100KG"],
@@ -15,12 +8,19 @@ export default function Page() {
     ["Maturation End", "30 May 2026"],
   ];
 
+  const cardStyle = {
+    background: "rgba(255,255,255,.82)",
+    border: "1px solid #d8c9b2",
+    borderRadius: 16,
+    padding: 22,
+  };
+
   return (
     <main
       style={{
         minHeight: "100vh",
-        background: "#ebe6dd",
-        padding: 30,
+        background: "#e7dfd0",
+        padding: 34,
         fontFamily: "Georgia, 'Times New Roman', serif",
         display: "flex",
         justifyContent: "center",
@@ -29,262 +29,348 @@ export default function Page() {
       <section
         style={{
           width: "100%",
-          maxWidth: 1100,
-          background: "#fbfaf7",
-          borderRadius: 30,
+          maxWidth: 1120,
+          background: "#fbf7ee",
+          borderRadius: 18,
+          border: "1px solid #bfa46d",
+          boxShadow: "0 34px 90px rgba(40,28,12,.22)",
           overflow: "hidden",
-          boxShadow: "0 30px 80px rgba(0,0,0,0.15)",
         }}
       >
         <header
           style={{
+            position: "relative",
             background:
-              "radial-gradient(circle at 82% 20%, rgba(196,160,82,.16), transparent 28%), #0b0b0b",
+              "radial-gradient(circle at 82% 22%, rgba(191,164,109,.18), transparent 30%), linear-gradient(135deg, #070707 0%, #15120d 100%)",
             color: "white",
-            padding: "42px 60px 54px",
+            padding: "46px 64px 52px",
+            borderBottom: "6px double #bfa46d",
           }}
         >
-          <div
+          <img
+            src="/arbroath-logo-black-header.png"
+            alt="Arbroath"
             style={{
-              display: "grid",
-              gridTemplateColumns: "1fr 300px",
-              alignItems: "center",
-              gap: 44,
+              position: "absolute",
+              right: 54,
+              top: 34,
+              width: 245,
+              height: "auto",
+              opacity: 0.9,
+              filter: "brightness(1.12) contrast(1.08)",
             }}
-          >
-            <div>
-              <div
-                style={{
-                  display: "inline-block",
-                  fontSize: 12,
-                  letterSpacing: "0.35em",
-                  color: "#d8c7a2",
-                  fontWeight: 700,
-                  marginBottom: 46,
-                  borderBottom: "1px solid rgba(216,199,162,.55)",
-                  paddingBottom: 10,
-                }}
-              >
-                ARBROATH A.D. 1320
-              </div>
-
-              <h1
-                style={{
-                  margin: 0,
-                  fontSize: 64,
-                  lineHeight: 0.9,
-                  letterSpacing: "-0.05em",
-                  maxWidth: 720,
-                }}
-              >
-                Digital Cask Passport
-              </h1>
-
-              <p
-                style={{
-                  margin: "18px 0 0",
-                  fontSize: 22,
-                  color: "#e3dbcf",
-                  fontWeight: 700,
-                }}
-              >
-                Sicilian Sea Salt — Islay Edition
-              </p>
-            </div>
-
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                borderLeft: "1px solid rgba(216,199,162,.28)",
-                minHeight: 260,
-              }}
-            >
-              <img
-                src="/arbroath-logo.png"
-                alt="Arbroath"
-                style={{
-                  width: 230,
-                  height: "auto",
-                  objectFit: "contain",
-                  opacity: 0.96,
-                  filter:
-                    "brightness(1.7) contrast(1.15) drop-shadow(0 10px 28px rgba(0,0,0,.45))",
-                }}
-              />
-            </div>
-          </div>
-        </header>
-
-        <section style={{ padding: "50px 60px 70px" }}>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "flex-start",
-              marginBottom: 40,
-              gap: 30,
-            }}
-          >
-            <div>
-              <p style={{ margin: "0 0 8px", color: "#6f6a64", fontSize: 13 }}>
-                Registered Lot
-              </p>
-              <h2
-                style={{
-                  margin: 0,
-                  fontSize: 36,
-                  letterSpacing: "-0.03em",
-                  lineHeight: 1,
-                }}
-              >
-                AAD1320-ISE-20260323-B01
-              </h2>
-            </div>
-
-            <div
-              style={{
-                background: "#e9e3dc",
-                borderRadius: 999,
-                padding: "12px 22px",
-                fontSize: 14,
-                fontWeight: 700,
-                whiteSpace: "nowrap",
-              }}
-            >
-              ✓ Verified Digital Record
-            </div>
-          </div>
+          />
 
           <div
             style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(4, 1fr)",
-              gap: 16,
-              marginBottom: 45,
-            }}
-          >
-            {infoItems.map(([label, value]) => (
-              <div key={label} style={cardStyle}>
-                <p style={{ margin: "0 0 10px", color: "#6f6a64", fontSize: 13 }}>
-                  {label}
-                </p>
-                <p style={{ margin: 0, fontSize: 19, fontWeight: 700 }}>
-                  {value}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <section
-            style={{
-              background: "#f2eee8",
-              borderRadius: 22,
-              padding: 32,
-              marginBottom: 35,
+              maxWidth: 720,
+              position: "relative",
+              zIndex: 2,
             }}
           >
             <p
               style={{
-                margin: "0 0 14px",
-                color: "#77716a",
+                margin: "0 0 24px",
+                color: "#d9bd78",
                 fontSize: 12,
-                letterSpacing: "0.25em",
+                letterSpacing: "0.38em",
+                fontWeight: 700,
+                borderBottom: "1px solid rgba(217,189,120,.65)",
+                display: "inline-block",
+                paddingBottom: 10,
+              }}
+            >
+              ARBROATH A.D. 1320
+            </p>
+
+            <h1
+              style={{
+                margin: 0,
+                fontSize: 66,
+                lineHeight: 0.9,
+                letterSpacing: "-0.055em",
+              }}
+            >
+              Digital Cask Passport
+            </h1>
+
+            <p
+              style={{
+                margin: "18px 0 0",
+                fontSize: 23,
+                color: "#eee5d2",
                 fontWeight: 700,
               }}
             >
-              MATURATION TIMELINE
+              Sicilian Sea Salt — Islay Edition
             </p>
+          </div>
+        </header>
 
-            <h3
+        <section
+          style={{
+            position: "relative",
+            padding: "56px 64px 76px",
+            background:
+              "linear-gradient(180deg, #fbf7ee 0%, #f7f0e4 100%)",
+          }}
+        >
+          <div
+            style={{
+              position: "absolute",
+              inset: 22,
+              border: "1px solid rgba(191,164,109,.45)",
+              pointerEvents: "none",
+            }}
+          />
+
+          <div
+            style={{
+              position: "relative",
+              zIndex: 2,
+            }}
+          >
+            <div
               style={{
-                margin: "0 0 30px",
-                fontSize: 38,
-                letterSpacing: "-0.04em",
-                lineHeight: 1,
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "flex-start",
+                gap: 30,
+                marginBottom: 40,
               }}
             >
-              From sea to cask identity
-            </h3>
+              <div>
+                <p
+                  style={{
+                    margin: "0 0 9px",
+                    color: "#6e6252",
+                    fontSize: 13,
+                  }}
+                >
+                  Registered Lot
+                </p>
+
+                <h2
+                  style={{
+                    margin: 0,
+                    fontSize: 38,
+                    lineHeight: 1,
+                    letterSpacing: "-0.035em",
+                  }}
+                >
+                  AAD1320-ISE-20260323-B01
+                </h2>
+              </div>
+
+              <div
+                style={{
+                  background: "#efe5d2",
+                  border: "1px solid #d5bd8c",
+                  borderRadius: 999,
+                  padding: "12px 24px",
+                  fontSize: 14,
+                  fontWeight: 700,
+                  whiteSpace: "nowrap",
+                  boxShadow: "0 8px 24px rgba(80,55,20,.08)",
+                }}
+              >
+                ✓ Verified Digital Record
+              </div>
+            </div>
+
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(4, 1fr)",
+                gap: 16,
+                marginBottom: 46,
+              }}
+            >
+              {infoItems.map(([label, value]) => (
+                <div key={label} style={cardStyle}>
+                  <p
+                    style={{
+                      margin: "0 0 11px",
+                      color: "#6e6252",
+                      fontSize: 13,
+                    }}
+                  >
+                    {label}
+                  </p>
+                  <p
+                    style={{
+                      margin: 0,
+                      fontSize: 19,
+                      fontWeight: 700,
+                    }}
+                  >
+                    {value}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <section
+              style={{
+                background: "#efe8da",
+                border: "1px solid #d8c9b2",
+                borderRadius: 18,
+                padding: 34,
+                marginBottom: 38,
+              }}
+            >
+              <p
+                style={{
+                  margin: "0 0 14px",
+                  color: "#756a5a",
+                  fontSize: 12,
+                  letterSpacing: "0.28em",
+                  fontWeight: 700,
+                }}
+              >
+                MATURATION TIMELINE
+              </p>
+
+              <h3
+                style={{
+                  margin: "0 0 30px",
+                  fontSize: 39,
+                  lineHeight: 1,
+                  letterSpacing: "-0.04em",
+                }}
+              >
+                From sea to cask identity
+              </h3>
+
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "1fr 1fr",
+                  gap: 18,
+                }}
+              >
+                <div
+                  style={{
+                    background: "#fffaf1",
+                    border: "1px solid #e2d4bd",
+                    borderRadius: 14,
+                    padding: 26,
+                  }}
+                >
+                  <p style={{ margin: "0 0 20px", color: "#6e6252" }}>
+                    Start
+                  </p>
+                  <p style={{ margin: 0, fontSize: 27, fontWeight: 700 }}>
+                    23 March 2026
+                  </p>
+                </div>
+
+                <div
+                  style={{
+                    background: "#fffaf1",
+                    border: "1px solid #e2d4bd",
+                    borderRadius: 14,
+                    padding: 26,
+                  }}
+                >
+                  <p style={{ margin: "0 0 20px", color: "#6e6252" }}>
+                    Target Completion
+                  </p>
+                  <p style={{ margin: 0, fontSize: 27, fontWeight: 700 }}>
+                    30 May 2026
+                  </p>
+                </div>
+              </div>
+            </section>
 
             <div
               style={{
                 display: "grid",
                 gridTemplateColumns: "1fr 1fr",
-                gap: 18,
+                gap: 20,
+                marginBottom: 36,
               }}
             >
-              <div style={{ background: "white", borderRadius: 16, padding: 26 }}>
-                <p style={{ margin: "0 0 20px", color: "#6f6a64" }}>Start</p>
-                <p style={{ margin: 0, fontSize: 26, fontWeight: 700 }}>
-                  23 March 2026
+              <div style={{ ...cardStyle, padding: 32 }}>
+                <p
+                  style={{
+                    margin: "0 0 25px",
+                    fontSize: 12,
+                    letterSpacing: "0.27em",
+                    color: "#756a5a",
+                    fontWeight: 700,
+                  }}
+                >
+                  LEONARDO BLACK BOX
+                </p>
+                <h3
+                  style={{
+                    margin: "0 0 20px",
+                    fontSize: 31,
+                    lineHeight: 1.1,
+                  }}
+                >
+                  Environmental monitoring
+                </h3>
+                <p style={{ margin: 0, lineHeight: 1.7, fontSize: 17 }}>
+                  Temperature, humidity and vibrations are monitored throughout
+                  the maturation cycle, creating a continuous environmental
+                  record.
                 </p>
               </div>
 
-              <div style={{ background: "white", borderRadius: 16, padding: 26 }}>
-                <p style={{ margin: "0 0 20px", color: "#6f6a64" }}>
-                  Target Completion
+              <div style={{ ...cardStyle, padding: 32 }}>
+                <p
+                  style={{
+                    margin: "0 0 25px",
+                    fontSize: 12,
+                    letterSpacing: "0.27em",
+                    color: "#756a5a",
+                    fontWeight: 700,
+                  }}
+                >
+                  E.L.Y.A.S.-A.I.
                 </p>
-                <p style={{ margin: 0, fontSize: 26, fontWeight: 700 }}>
-                  30 May 2026
+                <h3
+                  style={{
+                    margin: "0 0 20px",
+                    fontSize: 31,
+                    lineHeight: 1.1,
+                  }}
+                >
+                  Certified intelligence layer
+                </h3>
+                <p style={{ margin: 0, lineHeight: 1.7, fontSize: 17 }}>
+                  The process is supported by a certified E.L.Y.A.S.-A.I.
+                  system, protecting traceability, quality control and digital
+                  integrity.
                 </p>
               </div>
             </div>
-          </section>
 
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1fr 1fr",
-              gap: 20,
-            }}
-          >
-            <div style={{ ...cardStyle, padding: 30 }}>
-              <p
-                style={{
-                  margin: "0 0 25px",
-                  fontSize: 12,
-                  letterSpacing: "0.25em",
-                  color: "#77716a",
-                  fontWeight: 700,
-                }}
-              >
-                LEONARDO BLACK BOX
-              </p>
+            <footer
+              style={{
+                borderTop: "1px solid #cdb98e",
+                paddingTop: 26,
+                display: "flex",
+                justifyContent: "space-between",
+                gap: 24,
+                color: "#6e6252",
+                fontSize: 13,
+              }}
+            >
+              <div>
+                <strong style={{ color: "#19140d" }}>Digital Seal</strong>
+                <br />
+                Verified under Arbroath A.D. 1320 registry protocol.
+              </div>
 
-              <h3 style={{ margin: "0 0 20px", fontSize: 30, lineHeight: 1.1 }}>
-                Environmental monitoring
-              </h3>
-
-              <p style={{ margin: 0, lineHeight: 1.7, fontSize: 17 }}>
-                Temperature, humidity and vibrations are monitored throughout
-                the maturation cycle, creating a continuous environmental record.
-              </p>
-            </div>
-
-            <div style={{ ...cardStyle, padding: 30 }}>
-              <p
-                style={{
-                  margin: "0 0 25px",
-                  fontSize: 12,
-                  letterSpacing: "0.25em",
-                  color: "#77716a",
-                  fontWeight: 700,
-                }}
-              >
-                E.L.Y.A.S.-A.I.
-              </p>
-
-              <h3 style={{ margin: "0 0 20px", fontSize: 30, lineHeight: 1.1 }}>
-                Certified intelligence layer
-              </h3>
-
-              <p style={{ margin: 0, lineHeight: 1.7, fontSize: 17 }}>
-                The process is supported by a certified E.L.Y.A.S.-A.I. system,
-                protecting traceability, quality control and digital integrity.
-              </p>
-            </div>
+              <div style={{ textAlign: "right" }}>
+                <strong style={{ color: "#19140d" }}>Record Class</strong>
+                <br />
+                Notarial-style maturation certificate.
+              </div>
+            </footer>
           </div>
         </section>
       </section>
