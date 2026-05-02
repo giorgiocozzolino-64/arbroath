@@ -1,10 +1,19 @@
 export default function Page() {
-  const card = {
+  const cardStyle = {
     background: "rgba(255,255,255,.75)",
     border: "1px solid #e6ddd2",
     borderRadius: 18,
     padding: 22,
   };
+
+  const infoItems = [
+    ["Product", "Sicilian Sea Salt"],
+    ["Cask", "100KG"],
+    ["Edition", "Islay"],
+    ["Status", "Verified / Maturing"],
+    ["Maturation Start", "23 March 2026"],
+    ["Maturation End", "30 May 2026"],
+  ];
 
   return (
     <main
@@ -12,7 +21,7 @@ export default function Page() {
         minHeight: "100vh",
         background: "#ebe6dd",
         padding: 30,
-        fontFamily: "Georgia, serif",
+        fontFamily: "Georgia, 'Times New Roman', serif",
         display: "flex",
         justifyContent: "center",
       }}
@@ -27,78 +36,95 @@ export default function Page() {
           boxShadow: "0 30px 80px rgba(0,0,0,0.15)",
         }}
       >
-        {/* HEADER */}
         <header
           style={{
-            background: "#0b0b0b",
+            background:
+              "radial-gradient(circle at 82% 20%, rgba(196,160,82,.16), transparent 28%), #0b0b0b",
             color: "white",
-            padding: "36px 60px 48px",
+            padding: "42px 60px 54px",
           }}
         >
           <div
             style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "flex-start",
-              marginBottom: 20,
+              display: "grid",
+              gridTemplateColumns: "1fr 300px",
+              alignItems: "center",
+              gap: 44,
             }}
           >
-            <span
+            <div>
+              <div
+                style={{
+                  display: "inline-block",
+                  fontSize: 12,
+                  letterSpacing: "0.35em",
+                  color: "#d8c7a2",
+                  fontWeight: 700,
+                  marginBottom: 46,
+                  borderBottom: "1px solid rgba(216,199,162,.55)",
+                  paddingBottom: 10,
+                }}
+              >
+                ARBROATH A.D. 1320
+              </div>
+
+              <h1
+                style={{
+                  margin: 0,
+                  fontSize: 64,
+                  lineHeight: 0.9,
+                  letterSpacing: "-0.05em",
+                  maxWidth: 720,
+                }}
+              >
+                Digital Cask Passport
+              </h1>
+
+              <p
+                style={{
+                  margin: "18px 0 0",
+                  fontSize: 22,
+                  color: "#e3dbcf",
+                  fontWeight: 700,
+                }}
+              >
+                Sicilian Sea Salt — Islay Edition
+              </p>
+            </div>
+
+            <div
               style={{
-                fontSize: 12,
-                letterSpacing: "0.35em",
-                color: "#d8c7a2",
-                fontWeight: 700,
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                borderLeft: "1px solid rgba(216,199,162,.28)",
+                minHeight: 260,
               }}
             >
-              ARBROATH A.D. 1320
-            </span>
-
-            {/* LOGO */}
-            <img
-              src="/arbroath-logo.png"
-              alt="Arbroath"
-              style={{
-                width: 260,
-                height: "auto",
-                opacity: 1,
-                filter: "brightness(1.6)",
-              }}
-            />
+              <img
+                src="/arbroath-logo.png"
+                alt="Arbroath"
+                style={{
+                  width: 230,
+                  height: "auto",
+                  objectFit: "contain",
+                  opacity: 0.96,
+                  filter:
+                    "brightness(1.7) contrast(1.15) drop-shadow(0 10px 28px rgba(0,0,0,.45))",
+                }}
+              />
+            </div>
           </div>
-
-          <h1
-            style={{
-              margin: 0,
-              fontSize: 64,
-              lineHeight: 0.9,
-              letterSpacing: "-0.05em",
-            }}
-          >
-            Digital Cask Passport
-          </h1>
-
-          <p
-            style={{
-              marginTop: 18,
-              fontSize: 22,
-              color: "#e3dbcf",
-              fontWeight: 600,
-            }}
-          >
-            Sicilian Sea Salt — Islay Edition
-          </p>
         </header>
 
-        {/* CONTENT */}
         <section style={{ padding: "50px 60px 70px" }}>
-          {/* LOT */}
           <div
             style={{
               display: "flex",
               justifyContent: "space-between",
               alignItems: "flex-start",
               marginBottom: 40,
+              gap: 30,
             }}
           >
             <div>
@@ -110,6 +136,7 @@ export default function Page() {
                   margin: 0,
                   fontSize: 36,
                   letterSpacing: "-0.03em",
+                  lineHeight: 1,
                 }}
               >
                 AAD1320-ISE-20260323-B01
@@ -123,13 +150,13 @@ export default function Page() {
                 padding: "12px 22px",
                 fontSize: 14,
                 fontWeight: 700,
+                whiteSpace: "nowrap",
               }}
             >
               ✓ Verified Digital Record
             </div>
           </div>
 
-          {/* GRID INFO */}
           <div
             style={{
               display: "grid",
@@ -138,15 +165,8 @@ export default function Page() {
               marginBottom: 45,
             }}
           >
-            {[
-              ["Product", "Sicilian Sea Salt"],
-              ["Cask", "100KG"],
-              ["Edition", "Islay"],
-              ["Status", "Verified / Maturing"],
-              ["Maturation Start", "23 March 2026"],
-              ["Maturation End", "30 May 2026"],
-            ].map(([label, value]) => (
-              <div key={label} style={card}>
+            {infoItems.map(([label, value]) => (
+              <div key={label} style={cardStyle}>
                 <p style={{ margin: "0 0 10px", color: "#6f6a64", fontSize: 13 }}>
                   {label}
                 </p>
@@ -157,7 +177,6 @@ export default function Page() {
             ))}
           </div>
 
-          {/* TIMELINE */}
           <section
             style={{
               background: "#f2eee8",
@@ -168,7 +187,7 @@ export default function Page() {
           >
             <p
               style={{
-                marginBottom: 14,
+                margin: "0 0 14px",
                 color: "#77716a",
                 fontSize: 12,
                 letterSpacing: "0.25em",
@@ -180,9 +199,10 @@ export default function Page() {
 
             <h3
               style={{
-                marginBottom: 30,
+                margin: "0 0 30px",
                 fontSize: 38,
                 letterSpacing: "-0.04em",
+                lineHeight: 1,
               }}
             >
               From sea to cask identity
@@ -196,24 +216,23 @@ export default function Page() {
               }}
             >
               <div style={{ background: "white", borderRadius: 16, padding: 26 }}>
-                <p style={{ marginBottom: 20, color: "#6f6a64" }}>Start</p>
-                <p style={{ fontSize: 26, fontWeight: 700 }}>
+                <p style={{ margin: "0 0 20px", color: "#6f6a64" }}>Start</p>
+                <p style={{ margin: 0, fontSize: 26, fontWeight: 700 }}>
                   23 March 2026
                 </p>
               </div>
 
               <div style={{ background: "white", borderRadius: 16, padding: 26 }}>
-                <p style={{ marginBottom: 20, color: "#6f6a64" }}>
+                <p style={{ margin: "0 0 20px", color: "#6f6a64" }}>
                   Target Completion
                 </p>
-                <p style={{ fontSize: 26, fontWeight: 700 }}>
+                <p style={{ margin: 0, fontSize: 26, fontWeight: 700 }}>
                   30 May 2026
                 </p>
               </div>
             </div>
           </section>
 
-          {/* EXTRA INFO (QUELLA CHE TI MANCAVA) */}
           <div
             style={{
               display: "grid",
@@ -221,47 +240,47 @@ export default function Page() {
               gap: 20,
             }}
           >
-            <div style={{ ...card, padding: 30 }}>
+            <div style={{ ...cardStyle, padding: 30 }}>
               <p
                 style={{
+                  margin: "0 0 25px",
                   fontSize: 12,
                   letterSpacing: "0.25em",
                   color: "#77716a",
-                  marginBottom: 25,
                   fontWeight: 700,
                 }}
               >
                 LEONARDO BLACK BOX
               </p>
 
-              <h3 style={{ fontSize: 30, marginBottom: 20 }}>
+              <h3 style={{ margin: "0 0 20px", fontSize: 30, lineHeight: 1.1 }}>
                 Environmental monitoring
               </h3>
 
-              <p style={{ lineHeight: 1.7 }}>
+              <p style={{ margin: 0, lineHeight: 1.7, fontSize: 17 }}>
                 Temperature, humidity and vibrations are monitored throughout
                 the maturation cycle, creating a continuous environmental record.
               </p>
             </div>
 
-            <div style={{ ...card, padding: 30 }}>
+            <div style={{ ...cardStyle, padding: 30 }}>
               <p
                 style={{
+                  margin: "0 0 25px",
                   fontSize: 12,
                   letterSpacing: "0.25em",
                   color: "#77716a",
-                  marginBottom: 25,
                   fontWeight: 700,
                 }}
               >
                 E.L.Y.A.S.-A.I.
               </p>
 
-              <h3 style={{ fontSize: 30, marginBottom: 20 }}>
+              <h3 style={{ margin: "0 0 20px", fontSize: 30, lineHeight: 1.1 }}>
                 Certified intelligence layer
               </h3>
 
-              <p style={{ lineHeight: 1.7 }}>
+              <p style={{ margin: 0, lineHeight: 1.7, fontSize: 17 }}>
                 The process is supported by a certified E.L.Y.A.S.-A.I. system,
                 protecting traceability, quality control and digital integrity.
               </p>
