@@ -1,15 +1,4 @@
-const casks: Record
-  string,
-  {
-    product: string;
-    cask: string;
-    edition: string;
-    status: string;
-    start: string;
-    end: string;
-    qr: string;
-  }
-> = {
+const casks = {
   "AAD1320-ISE-20260323-B01": {
     product: "Sicilian Sea Salt",
     cask: "100KG",
@@ -82,6 +71,16 @@ const casks: Record
     end: "30 May 2026",
     qr: "/qr-code_SALT.png",
   },
+} as const;
+
+type CaskData = {
+  product: string;
+  cask: string;
+  edition: string;
+  status: string;
+  start: string;
+  end: string;
+  qr: string;
 };
 
 export default function CaskPage({
@@ -89,7 +88,7 @@ export default function CaskPage({
 }: {
   params: { lot: string };
 }) {
-  const data = casks[params.lot];
+  const data = casks[params.lot as keyof typeof casks] as CaskData | undefined;
 
   if (!data) {
     return (
@@ -174,7 +173,6 @@ export default function CaskPage({
           position: relative;
         }
 
-        /* Watermark pattern */
         .certificate::before {
           content: '';
           position: absolute;
@@ -204,7 +202,6 @@ export default function CaskPage({
           overflow: hidden;
         }
 
-        /* Decorative corner accents */
         .hero::after {
           content: '';
           position: absolute;
@@ -282,7 +279,6 @@ export default function CaskPage({
           border-radius: 8px;
         }
 
-        /* Decorative corner elements */
         .innerBorder::before,
         .innerBorder::after {
           content: '';
@@ -454,7 +450,6 @@ export default function CaskPage({
           color: #8b6f3d;
         }
 
-        /* QR Code section */
         .qrSection {
           display: flex;
           align-items: center;
