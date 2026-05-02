@@ -9,7 +9,7 @@ export default function Page() {
   ];
 
   const cardStyle = {
-    background: "rgba(255,255,255,.82)",
+    background: "rgba(255,255,255,.84)",
     border: "1px solid #d8c9b2",
     borderRadius: 16,
     padding: 22,
@@ -41,10 +41,11 @@ export default function Page() {
           style={{
             position: "relative",
             background:
-              "radial-gradient(circle at 82% 22%, rgba(191,164,109,.18), transparent 30%), linear-gradient(135deg, #070707 0%, #15120d 100%)",
+              "radial-gradient(circle at 82% 18%, rgba(191,164,109,.18), transparent 30%), linear-gradient(135deg, #070707 0%, #17130d 100%)",
             color: "white",
-            padding: "46px 64px 52px",
+            padding: "48px 64px 54px",
             borderBottom: "6px double #bfa46d",
+            minHeight: 258,
           }}
         >
           <img
@@ -52,12 +53,13 @@ export default function Page() {
             alt="Arbroath"
             style={{
               position: "absolute",
-              right: 54,
-              top: 34,
+              right: 56,
+              top: 8,
               width: 245,
               height: "auto",
-              opacity: 0.9,
-              filter: "brightness(1.12) contrast(1.08)",
+              opacity: 0.94,
+              filter:
+                "brightness(1.16) contrast(1.08) drop-shadow(0 18px 38px rgba(0,0,0,.48))",
             }}
           />
 
@@ -70,12 +72,12 @@ export default function Page() {
           >
             <p
               style={{
-                margin: "0 0 24px",
+                margin: "0 0 36px",
                 color: "#d9bd78",
                 fontSize: 12,
                 letterSpacing: "0.38em",
                 fontWeight: 700,
-                borderBottom: "1px solid rgba(217,189,120,.65)",
+                borderBottom: "1px solid rgba(217,189,120,.7)",
                 display: "inline-block",
                 paddingBottom: 10,
               }}
@@ -124,12 +126,7 @@ export default function Page() {
             }}
           />
 
-          <div
-            style={{
-              position: "relative",
-              zIndex: 2,
-            }}
-          >
+          <div style={{ position: "relative", zIndex: 2 }}>
             <div
               style={{
                 display: "flex",
@@ -197,13 +194,7 @@ export default function Page() {
                   >
                     {label}
                   </p>
-                  <p
-                    style={{
-                      margin: 0,
-                      fontSize: 19,
-                      fontWeight: 700,
-                    }}
-                  >
+                  <p style={{ margin: 0, fontSize: 19, fontWeight: 700 }}>
                     {value}
                   </p>
                 </div>
@@ -303,6 +294,7 @@ export default function Page() {
                 >
                   LEONARDO BLACK BOX
                 </p>
+
                 <h3
                   style={{
                     margin: "0 0 20px",
@@ -312,6 +304,7 @@ export default function Page() {
                 >
                   Environmental monitoring
                 </h3>
+
                 <p style={{ margin: 0, lineHeight: 1.7, fontSize: 17 }}>
                   Temperature, humidity and vibrations are monitored throughout
                   the maturation cycle, creating a continuous environmental
@@ -331,6 +324,7 @@ export default function Page() {
                 >
                   E.L.Y.A.S.-A.I.
                 </p>
+
                 <h3
                   style={{
                     margin: "0 0 20px",
@@ -340,6 +334,7 @@ export default function Page() {
                 >
                   Certified intelligence layer
                 </h3>
+
                 <p style={{ margin: 0, lineHeight: 1.7, fontSize: 17 }}>
                   The process is supported by a certified E.L.Y.A.S.-A.I.
                   system, protecting traceability, quality control and digital
