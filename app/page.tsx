@@ -10,20 +10,25 @@ export default function Page() {
 
   return (
     <main className="min-h-screen bg-[#f1eee9] flex justify-center font-serif">
-      <section className="w-full max-w-[1080px] bg-[#fbfaf8] text-[#050505]">
-        <div className="flex justify-center pt-8 pb-6">
-          <img
-            src="/arbroath-logo.png"
-            alt="Arbroath"
-            className="w-[240px] h-auto"
-          />
-        </div>
+      <section className="w-full max-w-[1080px] bg-[#fbfaf8] text-[#050505] overflow-hidden rounded-[28px]">
 
-        <header className="bg-[#111111] text-white px-[56px] pt-[32px] pb-[34px]">
-          <h1 className="text-[58px] leading-[0.9] font-bold tracking-[-0.04em]">
+        {/* HEADER NERO CON LOGO DENTRO */}
+        <header className="bg-[#0b0b0b] text-white px-[56px] pt-[26px] pb-[38px] rounded-t-[28px]">
+
+          {/* LOGO PICCOLO IN ALTO */}
+          <div className="mb-6">
+            <img
+              src="/arbroath-logo.png"
+              alt="Arbroath"
+              className="w-[140px] opacity-90"
+            />
+          </div>
+
+          <h1 className="text-[56px] leading-[0.9] font-bold tracking-[-0.04em]">
             Digital Cask Passport
           </h1>
-          <p className="mt-5 text-[22px] font-bold">
+
+          <p className="mt-4 text-[20px] font-semibold text-[#d6d1c9]">
             Sicilian Sea Salt — Islay Edition
           </p>
         </header>
@@ -84,14 +89,11 @@ export default function Page() {
                 Leonardo Black Box
               </p>
               <h3 className="text-[32px] leading-tight font-bold tracking-[-0.03em] mb-7">
-                Environmental
-                <br />
-                monitoring
+                Environmental<br />monitoring
               </h3>
               <p className="text-[17px] leading-7">
                 Temperature, humidity and vibrations are monitored throughout
-                the maturation cycle, creating a continuous environmental
-                record.
+                the maturation cycle, creating a continuous environmental record.
               </p>
             </article>
 
