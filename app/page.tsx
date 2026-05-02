@@ -10,8 +10,16 @@ export default function Page() {
 
   return (
     <main className="min-h-screen bg-[#f1eee9] flex justify-center font-serif">
-      <section className="w-full max-w-[984px] bg-[#fbfaf8] text-[#050505] shadow-2xl">
-        <header className="bg-[#111111] text-white px-[62px] pt-[42px] pb-[38px]">
+      <section className="w-full max-w-[1080px] bg-[#fbfaf8] text-[#050505]">
+        <div className="flex justify-center pt-8 pb-6">
+          <img
+            src="/arbroath-logo.png"
+            alt="Arbroath"
+            className="w-[240px] h-auto"
+          />
+        </div>
+
+        <header className="bg-[#111111] text-white px-[56px] pt-[32px] pb-[34px]">
           <h1 className="text-[58px] leading-[0.9] font-bold tracking-[-0.04em]">
             Digital Cask Passport
           </h1>
@@ -20,12 +28,10 @@ export default function Page() {
           </p>
         </header>
 
-        <section className="px-[62px] pt-[42px] pb-[70px]">
-          <div className="flex items-center justify-between gap-8 mb-9">
+        <section className="px-[56px] pt-[42px] pb-[70px]">
+          <div className="flex items-start justify-between gap-8 mb-9">
             <div>
-              <p className="text-[13px] text-[#6f6a64] mb-2">
-                Registered Lot
-              </p>
+              <p className="text-[13px] text-[#6f6a64] mb-2">Registered Lot</p>
               <h2 className="text-[34px] leading-tight font-bold tracking-[-0.03em]">
                 AAD1320-ISE-20260323-B01
               </h2>
@@ -40,7 +46,7 @@ export default function Page() {
             {items.map(([label, value]) => (
               <article
                 key={label}
-                className="bg-white/70 border border-[#e7dfd6] rounded-[17px] px-5 py-5 min-h-[82px]"
+                className="bg-white/70 border border-[#e7dfd6] rounded-[17px] px-5 py-5 min-h-[90px]"
               >
                 <p className="text-[13px] text-[#6f6a64] mb-2">{label}</p>
                 <p className="text-[18px] font-bold leading-snug">{value}</p>
@@ -48,7 +54,7 @@ export default function Page() {
             ))}
           </div>
 
-          <section className="bg-[#f2eee8] rounded-[20px] px-8 pt-8 pb-7 mb-8">
+          <section className="bg-[#f2eee8] rounded-[20px] px-8 pt-8 pb-8 mb-9">
             <p className="uppercase tracking-[0.24em] text-[12px] text-[#77716a] font-bold mb-3">
               Maturation Timeline
             </p>
@@ -58,12 +64,12 @@ export default function Page() {
             </h3>
 
             <div className="grid grid-cols-2 gap-4">
-              <article className="bg-white rounded-[15px] px-6 py-6 min-h-[108px]">
+              <article className="bg-white rounded-[15px] px-6 py-6 min-h-[118px]">
                 <p className="text-[15px] text-[#6f6a64] mb-5">Start</p>
                 <p className="text-[25px] font-bold">23 March 2026</p>
               </article>
 
-              <article className="bg-white rounded-[15px] px-6 py-6 min-h-[108px]">
+              <article className="bg-white rounded-[15px] px-6 py-6 min-h-[118px]">
                 <p className="text-[15px] text-[#6f6a64] mb-5">
                   Target Completion
                 </p>
@@ -72,22 +78,33 @@ export default function Page() {
             </div>
           </section>
 
-          <section className="grid grid-cols-2 gap-4">
-            <article className="bg-white/70 border border-[#e7dfd6] rounded-[18px] p-7 min-h-[135px]">
-              <p className="uppercase tracking-[0.24em] text-[12px] text-[#77716a] font-bold mb-4">
+          <section className="grid grid-cols-2 gap-5">
+            <article className="bg-white/70 border border-[#e7dfd6] rounded-[18px] p-8 min-h-[250px]">
+              <p className="uppercase tracking-[0.24em] text-[12px] text-[#77716a] font-bold mb-7">
                 Leonardo Black Box
               </p>
-              <p className="text-[18px] font-bold">
-                Traceability record active
+              <h3 className="text-[32px] leading-tight font-bold tracking-[-0.03em] mb-7">
+                Environmental
+                <br />
+                monitoring
+              </h3>
+              <p className="text-[17px] leading-7">
+                Temperature, humidity and vibrations are monitored throughout
+                the maturation cycle, creating a continuous environmental
+                record.
               </p>
             </article>
 
-            <article className="bg-white/70 border border-[#e7dfd6] rounded-[18px] p-7 min-h-[135px]">
-              <p className="uppercase tracking-[0.24em] text-[12px] text-[#77716a] font-bold mb-4">
+            <article className="bg-white/70 border border-[#e7dfd6] rounded-[18px] p-8 min-h-[250px]">
+              <p className="uppercase tracking-[0.24em] text-[12px] text-[#77716a] font-bold mb-7">
                 E.L.Y.A.S.-A.I.
               </p>
-              <p className="text-[18px] font-bold">
-                Verified maturation intelligence
+              <h3 className="text-[32px] leading-tight font-bold tracking-[-0.03em] mb-7">
+                Certified intelligence layer
+              </h3>
+              <p className="text-[17px] leading-7">
+                The process is supported by a certified E.L.Y.A.S.-A.I. system,
+                protecting traceability, quality control and digital integrity.
               </p>
             </article>
           </section>
