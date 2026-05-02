@@ -1,15 +1,131 @@
-export default function Page() {
+const casks: Record
+  string,
+  {
+    product: string;
+    cask: string;
+    edition: string;
+    status: string;
+    start: string;
+    end: string;
+    qr: string;
+  }
+> = {
+  "AAD1320-ISE-20260323-B01": {
+    product: "Sicilian Sea Salt",
+    cask: "100KG",
+    edition: "Islay",
+    status: "Verified / Maturing",
+    start: "23 March 2026",
+    end: "30 May 2026",
+    qr: "/qr-code_SALT.png",
+  },
+  "AAD1320-ISE-20260323-B02": {
+    product: "Sicilian Sea Salt",
+    cask: "100KG",
+    edition: "Islay",
+    status: "Verified / Maturing",
+    start: "23 March 2026",
+    end: "30 May 2026",
+    qr: "/qr-code_SALT.png",
+  },
+  "AAD1320-ISE-20260323-B03": {
+    product: "Sicilian Sea Salt",
+    cask: "100KG",
+    edition: "Islay",
+    status: "Verified / Maturing",
+    start: "23 March 2026",
+    end: "30 May 2026",
+    qr: "/qr-code_SALT.png",
+  },
+  "AAD1320-ISE-20260323-B04": {
+    product: "Sicilian Sea Salt",
+    cask: "100KG",
+    edition: "Islay",
+    status: "Verified / Maturing",
+    start: "23 March 2026",
+    end: "30 May 2026",
+    qr: "/qr-code_SALT.png",
+  },
+  "AAD1320-ISE-20260323-B05": {
+    product: "Sicilian Sea Salt",
+    cask: "100KG",
+    edition: "Islay",
+    status: "Verified / Maturing",
+    start: "23 March 2026",
+    end: "30 May 2026",
+    qr: "/qr-code_SALT.png",
+  },
+  "AAD1320-ISE-20260323-B06": {
+    product: "Sicilian Sea Salt",
+    cask: "100KG",
+    edition: "Islay",
+    status: "Verified / Maturing",
+    start: "23 March 2026",
+    end: "30 May 2026",
+    qr: "/qr-code_SALT.png",
+  },
+  "AAD1320-ISE-20260323-B07": {
+    product: "Sicilian Sea Salt",
+    cask: "100KG",
+    edition: "Islay",
+    status: "Verified / Maturing",
+    start: "23 March 2026",
+    end: "30 May 2026",
+    qr: "/qr-code_SALT.png",
+  },
+  "AAD1320-ISE-20260323-B08": {
+    product: "Sicilian Sea Salt",
+    cask: "100KG",
+    edition: "Islay",
+    status: "Verified / Maturing",
+    start: "23 March 2026",
+    end: "30 May 2026",
+    qr: "/qr-code_SALT.png",
+  },
+};
+
+export default function CaskPage({
+  params,
+}: {
+  params: { lot: string };
+}) {
+  const data = casks[params.lot];
+
+  if (!data) {
+    return (
+      <main style={{ 
+        minHeight: '100vh',
+        background: 'linear-gradient(135deg, #e7dfd0 0%, #d4c9b5 100%)',
+        padding: '60px 40px', 
+        fontFamily: 'Georgia, serif',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'column',
+        textAlign: 'center',
+        color: '#19140d'
+      }}>
+        <h1 style={{ fontSize: '48px', marginBottom: '16px', letterSpacing: '-.04em' }}>
+          Cask Not Found
+        </h1>
+        <p style={{ fontSize: '18px', color: '#6e6252', maxWidth: '500px', lineHeight: '1.6' }}>
+          The requested lot number could not be found in the Arbroath A.D. 1320 registry. 
+          Please verify the lot number and try again.
+        </p>
+      </main>
+    );
+  }
+
   const infoItems = [
-    ["Product", "Sicilian Sea Salt"],
-    ["Cask", "100KG"],
-    ["Edition", "Islay"],
-    ["Status", "Verified / Maturing"],
-    ["Maturation Start", "23 March 2026"],
-    ["Maturation End", "30 May 2026"],
+    ["Product", data.product],
+    ["Cask", data.cask],
+    ["Edition", data.edition],
+    ["Status", data.status],
+    ["Maturation Start", data.start],
+    ["Maturation End", data.end],
   ];
 
-  const lotNumber = "AAD1320-ISE-20260323-B01";
-  const qrData = `https://arbroath.io/verify/${lotNumber}`;
+  const qrData = `https://arbroath.io/verify/${params.lot}`;
 
   return (
     <>
@@ -30,11 +146,6 @@ export default function Page() {
         @keyframes shimmer {
           0% { background-position: -1000px 0; }
           100% { background-position: 1000px 0; }
-        }
-
-        @keyframes pulse {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0.7; }
         }
 
         .page {
@@ -200,6 +311,24 @@ export default function Page() {
           z-index: 2;
         }
 
+        .certMeta {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 18px 24px;
+          background: rgba(239,229,210,.4);
+          border-radius: 12px;
+          margin-bottom: 32px;
+          font-size: 12px;
+          color: #6e6252;
+          animation: fadeInUp 0.8s ease-out 0.35s both;
+        }
+
+        .certMeta strong {
+          color: #19140d;
+          font-weight: 700;
+        }
+
         .lotRow {
           display: flex;
           justify-content: space-between;
@@ -325,6 +454,65 @@ export default function Page() {
           color: #8b6f3d;
         }
 
+        /* QR Code section */
+        .qrSection {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          padding: 20px;
+          background: rgba(255,255,255,.7);
+          border: 1px solid #e2d4bd;
+          border-radius: 12px;
+          margin-bottom: 28px;
+          animation: fadeInUp 0.8s ease-out 0.65s both;
+        }
+
+        .qrCode {
+          width: 120px;
+          height: 120px;
+          background: white;
+          border: 2px solid #d8c9b2;
+          border-radius: 8px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+          box-shadow: 0 4px 12px rgba(80,55,20,.08);
+          padding: 8px;
+        }
+
+        .qrCode img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+
+        .qrInfo {
+          flex: 1;
+        }
+
+        .qrInfo .label {
+          margin-bottom: 6px;
+        }
+
+        .qrInfo p {
+          margin: 0;
+          font-size: 14px;
+          line-height: 1.5;
+          color: #5a5044;
+        }
+
+        .qrInfo code {
+          display: inline-block;
+          margin-top: 6px;
+          font-family: 'Courier New', monospace;
+          font-size: 12px;
+          color: #8b6f3d;
+          background: rgba(191,164,109,.1);
+          padding: 4px 8px;
+          border-radius: 4px;
+        }
+
         .timeline {
           background: 
             linear-gradient(135deg, #f2ebd9 0%, #efe8da 100%);
@@ -437,84 +625,6 @@ export default function Page() {
           letter-spacing: 0.08em;
           text-transform: uppercase;
           font-variant: small-caps;
-        }
-
-        /* QR Code section */
-        .qrSection {
-          display: flex;
-          align-items: center;
-          gap: 16px;
-          padding: 20px;
-          background: rgba(255,255,255,.7);
-          border: 1px solid #e2d4bd;
-          border-radius: 12px;
-          margin-bottom: 28px;
-          animation: fadeInUp 0.8s ease-out 0.65s both;
-        }
-
-        .qrCode {
-          width: 120px;
-          height: 120px;
-          background: white;
-          border: 2px solid #d8c9b2;
-          border-radius: 8px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-shrink: 0;
-          box-shadow: 0 4px 12px rgba(80,55,20,.08);
-          padding: 8px;
-        }
-
-        .qrCode img {
-          width: 100%;
-          height: 100%;
-          object-fit: contain;
-        }
-
-        .qrInfo {
-          flex: 1;
-        }
-
-        .qrInfo .label {
-          margin-bottom: 6px;
-        }
-
-        .qrInfo p {
-          margin: 0;
-          font-size: 14px;
-          line-height: 1.5;
-          color: #5a5044;
-        }
-
-        .qrInfo code {
-          display: inline-block;
-          margin-top: 6px;
-          font-family: 'Courier New', monospace;
-          font-size: 12px;
-          color: #8b6f3d;
-          background: rgba(191,164,109,.1);
-          padding: 4px 8px;
-          border-radius: 4px;
-        }
-
-        /* Certificate metadata */
-        .certMeta {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding: 18px 24px;
-          background: rgba(239,229,210,.4);
-          border-radius: 12px;
-          margin-bottom: 32px;
-          font-size: 12px;
-          color: #6e6252;
-          animation: fadeInUp 0.8s ease-out 0.35s both;
-        }
-
-        .certMeta strong {
-          color: #19140d;
-          font-weight: 700;
         }
 
         @media (max-width: 900px) {
@@ -662,7 +772,7 @@ export default function Page() {
             <div className="heroContent">
               <p className="brandLine">Arbroath A.D. 1320</p>
               <h1>Digital Cask Passport</h1>
-              <p className="subtitle">Sicilian Sea Salt — Islay Edition</p>
+              <p className="subtitle">{data.product} — {data.edition} Edition</p>
             </div>
           </header>
 
@@ -672,10 +782,10 @@ export default function Page() {
             <div className="content">
               <div className="certMeta">
                 <div>
-                  <strong>Certificate Issued:</strong> 23 March 2026
+                  <strong>Certificate Issued:</strong> {data.start}
                 </div>
                 <div>
-                  <strong>Registry ID:</strong> {lotNumber}
+                  <strong>Registry ID:</strong> {params.lot}
                 </div>
                 <div>
                   <strong>Document Type:</strong> Maturation Passport
@@ -685,7 +795,7 @@ export default function Page() {
               <div className="lotRow">
                 <div>
                   <p className="label">Registered Lot</p>
-                  <h2 className="lot">{lotNumber}</h2>
+                  <h2 className="lot">{params.lot}</h2>
                 </div>
 
                 <div className="badge">✓ Verified Digital Record</div>
@@ -703,7 +813,7 @@ export default function Page() {
               <div className="qrSection">
                 <div className="qrCode">
                   <img
-                    src="/qr-code_SALT.png"
+                    src={data.qr}
                     alt="Arbroath Digital Verification QR Code"
                   />
                 </div>
@@ -724,12 +834,12 @@ export default function Page() {
                 <div className="twoGrid">
                   <div className="miniCard">
                     <p className="label">Start</p>
-                    <p className="value">23 March 2026</p>
+                    <p className="value">{data.start}</p>
                   </div>
 
                   <div className="miniCard">
                     <p className="label">Target Completion</p>
-                    <p className="value">30 May 2026</p>
+                    <p className="value">{data.end}</p>
                   </div>
                 </div>
               </section>
