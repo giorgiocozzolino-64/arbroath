@@ -8,367 +8,462 @@ export default function Page() {
     ["Maturation End", "30 May 2026"],
   ];
 
-  const cardStyle = {
-    background: "rgba(255,255,255,.84)",
-    border: "1px solid #d8c9b2",
-    borderRadius: 16,
-    padding: 22,
-  };
-
   return (
-    <main
-      style={{
-        minHeight: "100vh",
-        background: "#e7dfd0",
-        padding: 34,
-        fontFamily: "Georgia, 'Times New Roman', serif",
-        display: "flex",
-        justifyContent: "center",
-      }}
-    >
-      <section
-        style={{
-          width: "100%",
-          maxWidth: 1120,
-          background: "#fbf7ee",
-          borderRadius: 18,
-          border: "1px solid #bfa46d",
-          boxShadow: "0 34px 90px rgba(40,28,12,.22)",
-          overflow: "hidden",
-        }}
-      >
-        <header
-          style={{
-            position: "relative",
-            background:
-              "radial-gradient(circle at 82% 18%, rgba(191,164,109,.18), transparent 30%), linear-gradient(135deg, #070707 0%, #17130d 100%)",
-            color: "white",
-            padding: "48px 64px 54px",
-            borderBottom: "6px double #bfa46d",
-            minHeight: 258,
-          }}
-        >
-          <img
-            src="/arbroath-logo-black-header.png"
-            alt="Arbroath"
-            style={{
-              position: "absolute",
-              right: 56,
-              top: 8,
-              width: 245,
-              height: "auto",
-              opacity: 0.94,
-              filter:
-                "brightness(1.16) contrast(1.08) drop-shadow(0 18px 38px rgba(0,0,0,.48))",
-            }}
-          />
+    <>
+      <style>{`
+        * { box-sizing: border-box; }
 
-          <div
-            style={{
-              maxWidth: 720,
-              position: "relative",
-              zIndex: 2,
-            }}
-          >
-            <p
-              style={{
-                margin: "0 0 36px",
-                color: "#d9bd78",
-                fontSize: 12,
-                letterSpacing: "0.38em",
-                fontWeight: 700,
-                borderBottom: "1px solid rgba(217,189,120,.7)",
-                display: "inline-block",
-                paddingBottom: 10,
-              }}
-            >
-              ARBROATH A.D. 1320
-            </p>
+        .page {
+          min-height: 100vh;
+          background: #e7dfd0;
+          padding: 34px;
+          font-family: Georgia, 'Times New Roman', serif;
+          display: flex;
+          justify-content: center;
+        }
 
-            <h1
-              style={{
-                margin: 0,
-                fontSize: 66,
-                lineHeight: 0.9,
-                letterSpacing: "-0.055em",
-              }}
-            >
-              Digital Cask Passport
-            </h1>
+        .certificate {
+          width: 100%;
+          max-width: 1120px;
+          background: #fbf7ee;
+          border-radius: 18px;
+          border: 1px solid #bfa46d;
+          box-shadow: 0 34px 90px rgba(40,28,12,.22);
+          overflow: hidden;
+        }
 
-            <p
-              style={{
-                margin: "18px 0 0",
-                fontSize: 23,
-                color: "#eee5d2",
-                fontWeight: 700,
-              }}
-            >
-              Sicilian Sea Salt — Islay Edition
-            </p>
-          </div>
-        </header>
+        .hero {
+          position: relative;
+          background: radial-gradient(circle at 82% 18%, rgba(191,164,109,.18), transparent 30%), linear-gradient(135deg, #070707 0%, #17130d 100%);
+          color: white;
+          padding: 48px 64px 54px;
+          border-bottom: 6px double #bfa46d;
+          min-height: 258px;
+        }
 
-        <section
-          style={{
-            position: "relative",
-            padding: "56px 64px 76px",
-            background:
-              "linear-gradient(180deg, #fbf7ee 0%, #f7f0e4 100%)",
-          }}
-        >
-          <div
-            style={{
-              position: "absolute",
-              inset: 22,
-              border: "1px solid rgba(191,164,109,.45)",
-              pointerEvents: "none",
-            }}
-          />
+        .heroLogo {
+          position: absolute;
+          right: 56px;
+          top: 8px;
+          width: 245px;
+          height: auto;
+          opacity: .94;
+          filter: brightness(1.16) contrast(1.08) drop-shadow(0 18px 38px rgba(0,0,0,.48));
+        }
 
-          <div style={{ position: "relative", zIndex: 2 }}>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "flex-start",
-                gap: 30,
-                marginBottom: 40,
-              }}
-            >
-              <div>
-                <p
-                  style={{
-                    margin: "0 0 9px",
-                    color: "#6e6252",
-                    fontSize: 13,
-                  }}
-                >
-                  Registered Lot
-                </p>
+        .heroContent {
+          max-width: 720px;
+          position: relative;
+          z-index: 2;
+        }
 
-                <h2
-                  style={{
-                    margin: 0,
-                    fontSize: 38,
-                    lineHeight: 1,
-                    letterSpacing: "-0.035em",
-                  }}
-                >
-                  AAD1320-ISE-20260323-B01
-                </h2>
-              </div>
+        .brandLine {
+          margin: 0 0 36px;
+          color: #d9bd78;
+          font-size: 12px;
+          letter-spacing: .38em;
+          font-weight: 700;
+          border-bottom: 1px solid rgba(217,189,120,.7);
+          display: inline-block;
+          padding-bottom: 10px;
+        }
 
-              <div
-                style={{
-                  background: "#efe5d2",
-                  border: "1px solid #d5bd8c",
-                  borderRadius: 999,
-                  padding: "12px 24px",
-                  fontSize: 14,
-                  fontWeight: 700,
-                  whiteSpace: "nowrap",
-                  boxShadow: "0 8px 24px rgba(80,55,20,.08)",
-                }}
-              >
-                ✓ Verified Digital Record
-              </div>
+        h1 {
+          margin: 0;
+          font-size: 66px;
+          line-height: .9;
+          letter-spacing: -.055em;
+        }
+
+        .subtitle {
+          margin: 18px 0 0;
+          font-size: 23px;
+          color: #eee5d2;
+          font-weight: 700;
+        }
+
+        .body {
+          position: relative;
+          padding: 56px 64px 76px;
+          background: linear-gradient(180deg, #fbf7ee 0%, #f7f0e4 100%);
+        }
+
+        .innerBorder {
+          position: absolute;
+          inset: 22px;
+          border: 1px solid rgba(191,164,109,.45);
+          pointer-events: none;
+        }
+
+        .content {
+          position: relative;
+          z-index: 2;
+        }
+
+        .lotRow {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          gap: 30px;
+          margin-bottom: 40px;
+        }
+
+        .label {
+          margin: 0 0 11px;
+          color: #6e6252;
+          font-size: 13px;
+        }
+
+        .lot {
+          margin: 0;
+          font-size: 38px;
+          line-height: 1;
+          letter-spacing: -.035em;
+        }
+
+        .badge {
+          background: #efe5d2;
+          border: 1px solid #d5bd8c;
+          border-radius: 999px;
+          padding: 12px 24px;
+          font-size: 14px;
+          font-weight: 700;
+          white-space: nowrap;
+          box-shadow: 0 8px 24px rgba(80,55,20,.08);
+        }
+
+        .infoGrid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 16px;
+          margin-bottom: 46px;
+        }
+
+        .card {
+          background: rgba(255,255,255,.84);
+          border: 1px solid #d8c9b2;
+          border-radius: 16px;
+          padding: 22px;
+        }
+
+        .value {
+          margin: 0;
+          font-size: 19px;
+          font-weight: 700;
+        }
+
+        .timeline {
+          background: #efe8da;
+          border: 1px solid #d8c9b2;
+          border-radius: 18px;
+          padding: 34px;
+          margin-bottom: 38px;
+        }
+
+        .kicker {
+          margin: 0 0 14px;
+          color: #756a5a;
+          font-size: 12px;
+          letter-spacing: .28em;
+          font-weight: 700;
+          text-transform: uppercase;
+        }
+
+        .timelineTitle {
+          margin: 0 0 30px;
+          font-size: 39px;
+          line-height: 1;
+          letter-spacing: -.04em;
+        }
+
+        .twoGrid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 18px;
+        }
+
+        .miniCard {
+          background: #fffaf1;
+          border: 1px solid #e2d4bd;
+          border-radius: 14px;
+          padding: 26px;
+        }
+
+        .footerGrid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 20px;
+          margin-bottom: 36px;
+        }
+
+        .footerCard {
+          background: rgba(255,255,255,.84);
+          border: 1px solid #d8c9b2;
+          border-radius: 16px;
+          padding: 32px;
+        }
+
+        .footerCard h3 {
+          margin: 0 0 20px;
+          font-size: 31px;
+          line-height: 1.1;
+        }
+
+        .footerCard p {
+          margin: 0;
+          line-height: 1.7;
+          font-size: 17px;
+        }
+
+        .sealFooter {
+          border-top: 1px solid #cdb98e;
+          padding-top: 26px;
+          display: flex;
+          justify-content: space-between;
+          gap: 24px;
+          color: #6e6252;
+          font-size: 13px;
+        }
+
+        .sealFooter strong {
+          color: #19140d;
+        }
+
+        @media (max-width: 900px) {
+          .page {
+            padding: 14px;
+          }
+
+          .hero {
+            padding: 34px 28px 38px;
+            min-height: auto;
+          }
+
+          .heroLogo {
+            position: relative;
+            right: auto;
+            top: auto;
+            display: block;
+            width: 170px;
+            margin: 0 auto 28px;
+          }
+
+          .brandLine {
+            margin-bottom: 28px;
+            font-size: 11px;
+            letter-spacing: .28em;
+          }
+
+          h1 {
+            font-size: 46px;
+          }
+
+          .subtitle {
+            font-size: 19px;
+          }
+
+          .body {
+            padding: 38px 28px 54px;
+          }
+
+          .innerBorder {
+            inset: 14px;
+          }
+
+          .lotRow {
+            flex-direction: column;
+            gap: 22px;
+          }
+
+          .lot {
+            font-size: 30px;
+            line-height: 1.05;
+            word-break: break-word;
+          }
+
+          .infoGrid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+
+          .timelineTitle {
+            font-size: 32px;
+          }
+
+          .twoGrid,
+          .footerGrid {
+            grid-template-columns: 1fr;
+          }
+
+          .sealFooter {
+            flex-direction: column;
+          }
+        }
+
+        @media (max-width: 520px) {
+          .page {
+            padding: 0;
+          }
+
+          .certificate {
+            border-radius: 0;
+            border-left: 0;
+            border-right: 0;
+          }
+
+          .hero {
+            padding: 30px 22px 34px;
+          }
+
+          .heroLogo {
+            width: 150px;
+            margin-bottom: 24px;
+          }
+
+          .brandLine {
+            font-size: 10px;
+            letter-spacing: .22em;
+            margin-bottom: 24px;
+          }
+
+          h1 {
+            font-size: 39px;
+            letter-spacing: -.045em;
+          }
+
+          .subtitle {
+            font-size: 17px;
+            line-height: 1.25;
+          }
+
+          .body {
+            padding: 34px 22px 48px;
+          }
+
+          .lot {
+            font-size: 25px;
+          }
+
+          .badge {
+            width: 100%;
+            text-align: center;
+          }
+
+          .infoGrid {
+            grid-template-columns: 1fr;
+            gap: 14px;
+          }
+
+          .card,
+          .footerCard,
+          .miniCard {
+            padding: 20px;
+          }
+
+          .timeline {
+            padding: 24px;
+          }
+
+          .timelineTitle {
+            font-size: 29px;
+            line-height: 1.05;
+          }
+        }
+      `}</style>
+
+      <main className="page">
+        <section className="certificate">
+          <header className="hero">
+            <img
+              src="/arbroath-logo-black-header.png"
+              alt="Arbroath"
+              className="heroLogo"
+            />
+
+            <div className="heroContent">
+              <p className="brandLine">ARBROATH A.D. 1320</p>
+              <h1>Digital Cask Passport</h1>
+              <p className="subtitle">Sicilian Sea Salt — Islay Edition</p>
             </div>
+          </header>
 
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(4, 1fr)",
-                gap: 16,
-                marginBottom: 46,
-              }}
-            >
-              {infoItems.map(([label, value]) => (
-                <div key={label} style={cardStyle}>
-                  <p
-                    style={{
-                      margin: "0 0 11px",
-                      color: "#6e6252",
-                      fontSize: 13,
-                    }}
-                  >
-                    {label}
-                  </p>
-                  <p style={{ margin: 0, fontSize: 19, fontWeight: 700 }}>
-                    {value}
+          <section className="body">
+            <div className="innerBorder" />
+
+            <div className="content">
+              <div className="lotRow">
+                <div>
+                  <p className="label">Registered Lot</p>
+                  <h2 className="lot">AAD1320-ISE-20260323-B01</h2>
+                </div>
+
+                <div className="badge">✓ Verified Digital Record</div>
+              </div>
+
+              <div className="infoGrid">
+                {infoItems.map(([label, value]) => (
+                  <div key={label} className="card">
+                    <p className="label">{label}</p>
+                    <p className="value">{value}</p>
+                  </div>
+                ))}
+              </div>
+
+              <section className="timeline">
+                <p className="kicker">Maturation Timeline</p>
+                <h3 className="timelineTitle">From sea to cask identity</h3>
+
+                <div className="twoGrid">
+                  <div className="miniCard">
+                    <p className="label">Start</p>
+                    <p className="value">23 March 2026</p>
+                  </div>
+
+                  <div className="miniCard">
+                    <p className="label">Target Completion</p>
+                    <p className="value">30 May 2026</p>
+                  </div>
+                </div>
+              </section>
+
+              <div className="footerGrid">
+                <div className="footerCard">
+                  <p className="kicker">Leonardo Black Box</p>
+                  <h3>Environmental monitoring</h3>
+                  <p>
+                    Temperature, humidity and vibrations are monitored throughout
+                    the maturation cycle, creating a continuous environmental
+                    record.
                   </p>
                 </div>
-              ))}
-            </div>
 
-            <section
-              style={{
-                background: "#efe8da",
-                border: "1px solid #d8c9b2",
-                borderRadius: 18,
-                padding: 34,
-                marginBottom: 38,
-              }}
-            >
-              <p
-                style={{
-                  margin: "0 0 14px",
-                  color: "#756a5a",
-                  fontSize: 12,
-                  letterSpacing: "0.28em",
-                  fontWeight: 700,
-                }}
-              >
-                MATURATION TIMELINE
-              </p>
-
-              <h3
-                style={{
-                  margin: "0 0 30px",
-                  fontSize: 39,
-                  lineHeight: 1,
-                  letterSpacing: "-0.04em",
-                }}
-              >
-                From sea to cask identity
-              </h3>
-
-              <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "1fr 1fr",
-                  gap: 18,
-                }}
-              >
-                <div
-                  style={{
-                    background: "#fffaf1",
-                    border: "1px solid #e2d4bd",
-                    borderRadius: 14,
-                    padding: 26,
-                  }}
-                >
-                  <p style={{ margin: "0 0 20px", color: "#6e6252" }}>
-                    Start
-                  </p>
-                  <p style={{ margin: 0, fontSize: 27, fontWeight: 700 }}>
-                    23 March 2026
-                  </p>
-                </div>
-
-                <div
-                  style={{
-                    background: "#fffaf1",
-                    border: "1px solid #e2d4bd",
-                    borderRadius: 14,
-                    padding: 26,
-                  }}
-                >
-                  <p style={{ margin: "0 0 20px", color: "#6e6252" }}>
-                    Target Completion
-                  </p>
-                  <p style={{ margin: 0, fontSize: 27, fontWeight: 700 }}>
-                    30 May 2026
+                <div className="footerCard">
+                  <p className="kicker">E.L.Y.A.S.-A.I.</p>
+                  <h3>Certified intelligence layer</h3>
+                  <p>
+                    The process is supported by a certified E.L.Y.A.S.-A.I.
+                    system, protecting traceability, quality control and digital
+                    integrity.
                   </p>
                 </div>
               </div>
-            </section>
 
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "1fr 1fr",
-                gap: 20,
-                marginBottom: 36,
-              }}
-            >
-              <div style={{ ...cardStyle, padding: 32 }}>
-                <p
-                  style={{
-                    margin: "0 0 25px",
-                    fontSize: 12,
-                    letterSpacing: "0.27em",
-                    color: "#756a5a",
-                    fontWeight: 700,
-                  }}
-                >
-                  LEONARDO BLACK BOX
-                </p>
+              <footer className="sealFooter">
+                <div>
+                  <strong>Digital Seal</strong>
+                  <br />
+                  Verified under Arbroath A.D. 1320 registry protocol.
+                </div>
 
-                <h3
-                  style={{
-                    margin: "0 0 20px",
-                    fontSize: 31,
-                    lineHeight: 1.1,
-                  }}
-                >
-                  Environmental monitoring
-                </h3>
-
-                <p style={{ margin: 0, lineHeight: 1.7, fontSize: 17 }}>
-                  Temperature, humidity and vibrations are monitored throughout
-                  the maturation cycle, creating a continuous environmental
-                  record.
-                </p>
-              </div>
-
-              <div style={{ ...cardStyle, padding: 32 }}>
-                <p
-                  style={{
-                    margin: "0 0 25px",
-                    fontSize: 12,
-                    letterSpacing: "0.27em",
-                    color: "#756a5a",
-                    fontWeight: 700,
-                  }}
-                >
-                  E.L.Y.A.S.-A.I.
-                </p>
-
-                <h3
-                  style={{
-                    margin: "0 0 20px",
-                    fontSize: 31,
-                    lineHeight: 1.1,
-                  }}
-                >
-                  Certified intelligence layer
-                </h3>
-
-                <p style={{ margin: 0, lineHeight: 1.7, fontSize: 17 }}>
-                  The process is supported by a certified E.L.Y.A.S.-A.I.
-                  system, protecting traceability, quality control and digital
-                  integrity.
-                </p>
-              </div>
+                <div>
+                  <strong>Record Class</strong>
+                  <br />
+                  Notarial-style maturation certificate.
+                </div>
+              </footer>
             </div>
-
-            <footer
-              style={{
-                borderTop: "1px solid #cdb98e",
-                paddingTop: 26,
-                display: "flex",
-                justifyContent: "space-between",
-                gap: 24,
-                color: "#6e6252",
-                fontSize: 13,
-              }}
-            >
-              <div>
-                <strong style={{ color: "#19140d" }}>Digital Seal</strong>
-                <br />
-                Verified under Arbroath A.D. 1320 registry protocol.
-              </div>
-
-              <div style={{ textAlign: "right" }}>
-                <strong style={{ color: "#19140d" }}>Record Class</strong>
-                <br />
-                Notarial-style maturation certificate.
-              </div>
-            </footer>
-          </div>
+          </section>
         </section>
-      </section>
-    </main>
+      </main>
+    </>
   );
 }
