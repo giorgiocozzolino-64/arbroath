@@ -1,6 +1,8 @@
 import Database from "better-sqlite3";
+import Image from "next/image";
 
-const db = new Database("./arbroath.db");
+const db = new Database(process.cwd() + "/public/arbroath.db");
+
 export default function KidPage({
   params,
 }: {
@@ -17,317 +19,99 @@ export default function KidPage({
 
   if (!kid) {
     return (
-      <main
-        style={{
-          minHeight: "100vh",
-          background: "#050505",
-          color: "#d4af37",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          fontFamily: "serif",
-        }}
-      >
-        <h1>Jar Not Found</h1>
+      <main className="min-h-screen bg-black text-[#d4af37] flex items-center justify-center">
+        <h1 className="text-4xl">Jar Not Found</h1>
       </main>
     );
   }
 
-  const unitLabel = `${kid.unit_number} of 666`;
-
   return (
-    <main
-      style={{
-        minHeight: "100vh",
-        background:
-          "radial-gradient(circle at top, #1a1a1a 0%, #050505 60%)",
-        color: "#f5e7b2",
-        padding: "40px 20px",
-        fontFamily: "Georgia, serif",
-      }}
-    >
-      <div
-        style={{
-          maxWidth: "1100px",
-          margin: "0 auto",
-        }}
-      >
-        {/* HERO */}
-        <section
-          style={{
-            border: "1px solid rgba(212,175,55,0.3)",
-            padding: "50px",
-            background: "rgba(0,0,0,0.65)",
-            borderRadius: "24px",
-            boxShadow: "0 0 40px rgba(212,175,55,0.08)",
-            textAlign: "center",
-          }}
-        >
-          <p
-            style={{
-              color: "#d4af37",
-              letterSpacing: "4px",
-              fontSize: "12px",
-              marginBottom: "20px",
-            }}
-          >
-            DIGITAL JAR PASSPORT
+    <main className="min-h-screen bg-black text-[#d4af37] px-6 py-12">
+      <div className="max-w-4xl mx-auto border border-[#d4af37] p-8 rounded-xl bg-[#050505]">
+
+        <div className="flex justify-center mb-10">
+          <Image
+            src="/arbroath-logo-black-header.png"
+            alt="Arbroath"
+            width={280}
+            height={280}
+          />
+        </div>
+
+        <div className="text-center mb-10">
+          <p className="tracking-[0.4em] text-sm mb-3">
+            DIGITAL CASK PASSPORT
           </p>
 
-          <h1
-            style={{
-              fontSize: "64px",
-              marginBottom: "10px",
-              color: "#f7d774",
-              textShadow: "0 0 18px rgba(212,175,55,0.2)",
-            }}
-          >
-            ARBROATH
-          </h1>
-
-          <p
-            style={{
-              letterSpacing: "8px",
-              marginBottom: "40px",
-              color: "#c5a45a",
-            }}
-          >
-            — A.D. 1320 —
-          </p>
-
-          <h2
-            style={{
-              fontSize: "36px",
-              marginBottom: "14px",
-            }}
-          >
+          <h1 className="text-5xl font-bold mb-6">
             Sicilian Sea Salt
             <br />
             Aged in Islay Whisky Casks
-          </h2>
+          </h1>
 
-          <p
-            style={{
-              color: "#d4af37",
-              fontSize: "24px",
-              marginTop: "30px",
-              marginBottom: "30px",
-            }}
-          >
-            VERIFIED AUTHENTICITY
+          <p className="text-xl">
+            VERIFIED CHILD JAR
           </p>
+        </div>
 
-          {/* QR FRAME */}
-          <div
-            style={{
-              width: "320px",
-              height: "320px",
-              margin: "0 auto",
-              border: "6px solid #b68b2c",
-              padding: "18px",
-              background: "#050505",
-              boxShadow: "0 0 35px rgba(212,175,55,0.15)",
-            }}
-          >
-            <div
-              style={{
-                width: "100%",
-                height: "100%",
-                border: "4px solid #d4af37",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                color: "#d4af37",
-                fontSize: "18px",
-                letterSpacing: "3px",
-              }}
-            >
-              QR ARTWORK
-            </div>
+        <div className="border-t border-[#d4af37] pt-8 space-y-5 text-lg">
+
+          <div>
+            <span className="font-bold">Serial:</span> {kid.serial}
           </div>
 
-          <p
-            style={{
-              marginTop: "28px",
-              color: "#c5a45a",
-              letterSpacing: "2px",
-            }}
-          >
-            SCAN TO UNLOCK
-            <br />
-            THE STORY. THE SCIENCE. THE LEGACY.
-          </p>
-
-          <div
-            style={{
-              marginTop: "40px",
-              display: "inline-block",
-              border: "1px solid #d4af37",
-              padding: "12px 28px",
-              borderRadius: "12px",
-              color: "#f5d06f",
-              letterSpacing: "3px",
-            }}
-          >
-            ELYAS INSIDE
+          <div>
+            <span className="font-bold">Father Cask:</span> {kid.parent_id}
           </div>
-        </section>
 
-        {/* INFO GRID */}
-        <section
-          style={{
-            marginTop: "40px",
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit,minmax(260px,1fr))",
-            gap: "24px",
-          }}
-        >
-          {[
-            {
-              title: "SERIAL",
-              value: kid.serial,
-            },
-            {
-              title: "FATHER CASK",
-              value: "B04",
-            },
-            {
-              title: "NUMBERED EDITION",
-              value: unitLabel,
-            },
-            {
-              title: "STATUS",
-              value: kid.status,
-            },
-          ].map((item) => (
-            <div
-              key={item.title}
-              style={{
-                border: "1px solid rgba(212,175,55,0.25)",
-                padding: "28px",
-                borderRadius: "20px",
-                background: "rgba(0,0,0,0.5)",
-              }}
-            >
-              <p
-                style={{
-                  color: "#b68b2c",
-                  letterSpacing: "3px",
-                  fontSize: "12px",
-                  marginBottom: "18px",
-                }}
-              >
-                {item.title}
-              </p>
+          <div>
+            <span className="font-bold">Edition:</span>{" "}
+            {kid.unit_number} of 666
+          </div>
 
-              <h3
-                style={{
-                  fontSize: "24px",
-                  color: "#f5e7b2",
-                }}
-              >
-                {item.value}
-              </h3>
-            </div>
-          ))}
-        </section>
+          <div>
+            <span className="font-bold">Status:</span> VERIFIED AUTHENTIC
+          </div>
 
-        {/* BUTTONS */}
-        <section
-          style={{
-            marginTop: "50px",
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))",
-            gap: "20px",
-          }}
-        >
-          {[
-            "RECIPES",
-            "LEONARDO BLACK BOX",
-            "PROVENANCE",
-            "ELYAS INSIDE",
-          ].map((button) => (
-            <button
-              key={button}
-              style={{
-                background:
-                  "linear-gradient(135deg,#1b1b1b,#0a0a0a)",
-                border: "1px solid #d4af37",
-                color: "#f5d06f",
-                padding: "24px",
-                borderRadius: "20px",
-                fontSize: "16px",
-                letterSpacing: "2px",
-                cursor: "pointer",
-                boxShadow: "0 0 18px rgba(212,175,55,0.08)",
-              }}
-            >
-              {button}
-            </button>
-          ))}
-        </section>
+          <div>
+            <span className="font-bold">Scan Count:</span> {kid.scans}
+          </div>
 
-        {/* STORY */}
-        <section
-          style={{
-            marginTop: "60px",
-            border: "1px solid rgba(212,175,55,0.25)",
-            padding: "40px",
-            borderRadius: "24px",
-            background: "rgba(0,0,0,0.55)",
-          }}
-        >
-          <h2
-            style={{
-              fontSize: "34px",
-              marginBottom: "24px",
-              color: "#f5d06f",
-            }}
-          >
-            Father Cask Legacy
+        </div>
+
+        <div className="mt-12 border-t border-[#d4af37] pt-10">
+
+          <h2 className="text-3xl font-bold mb-6">
+            Culinary Experience
           </h2>
 
-          <p
-            style={{
-              lineHeight: "1.9",
-              color: "#d9c999",
-              fontSize: "18px",
-            }}
-          >
-            This numbered child jar originates from Father Cask B04,
-            part of the ARBROATH A.D. 1320 provenance collection.
-            Sicilian Sea Salt crystals were matured inside Islay whisky
-            casks to create a rare sensory identity inspired by smoke,
-            maritime winds and Scottish heritage.
+          <ul className="space-y-3 text-lg">
+            <li>• Oyster finish with citrus oil</li>
+            <li>• Wagyu crystal salt pairing</li>
+            <li>• Tuna tartare with lemon zest</li>
+            <li>• Dark chocolate sea salt experience</li>
+          </ul>
+
+        </div>
+
+        <div className="mt-12 border-t border-[#d4af37] pt-10">
+
+          <h2 className="text-3xl font-bold mb-6">
+            Elyas Black Box Analysis
+          </h2>
+
+          <p className="text-lg leading-8 text-gray-300">
+            This numbered jar is tracked inside the Elyas provenance ecosystem.
+            The digital passport can evolve with future recipes, chef pairings,
+            blockchain verification, authenticity scans and multimedia content.
           </p>
 
-          <p
-            style={{
-              marginTop: "24px",
-              lineHeight: "1.9",
-              color: "#d9c999",
-              fontSize: "18px",
-            }}
-          >
-            Each jar carries a dynamic digital passport powered by
-            ELYAS provenance architecture with future integrations for
-            scan analytics, anti-counterfeit validation, collectible
-            ownership history and blockchain notarization.
-          </p>
-        </section>
+        </div>
 
-        {/* FOOTER */}
-        <footer
-          style={{
-            marginTop: "70px",
-            textAlign: "center",
-            color: "#8f6d25",
-            letterSpacing: "3px",
-            fontSize: "12px",
-          }}
-        >
-          ARBROATH • THE INDEPENDENT SPIRIT OF SCOTLAND
-        </footer>
+        <div className="mt-12 text-center text-sm tracking-[0.3em] text-[#d4af37]">
+          ELYAS INSIDE
+        </div>
+
       </div>
     </main>
   );
