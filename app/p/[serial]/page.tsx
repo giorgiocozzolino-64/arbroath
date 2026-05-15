@@ -1,7 +1,6 @@
 import Database from "better-sqlite3";
 
-const db = new Database(process.cwd() + "/arbroath.db");
-
+const db = new Database("./arbroath.db");
 export default function KidPage({
   params,
 }: {
