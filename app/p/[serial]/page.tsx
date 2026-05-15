@@ -1,8 +1,10 @@
 import Database from "better-sqlite3";
 import Image from "next/image";
+import path from "path";
 
-const db = new Database(process.cwd() + "/public/arbroath.db");
-
+const db = new Database(
+  path.join(process.cwd(), "public", "arbroath.db")
+);
 export default function KidPage({
   params,
 }: {
